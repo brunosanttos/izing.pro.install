@@ -78,6 +78,7 @@ system_update_izing() {
   cd /home/deploy/
   wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
   unzip -o update.zip
+  sleep 2
   rm update.zip
 EOF
 
