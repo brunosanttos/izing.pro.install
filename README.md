@@ -27,6 +27,10 @@ cd /root
 ```bash
 git clone https://github.com/cleitonme/izing.pro.install.git izinginstalador
 ```
+Para alterar as senhas alterar arquivo config, com nano para salvar aperta Ctrl + x
+```bash
+nano ./izinginstalador/config
+```
 ```bash
 sudo chmod +x ./izinginstalador/izing
 ```
