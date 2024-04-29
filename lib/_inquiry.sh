@@ -37,8 +37,16 @@ get_urls() {
 
 software_update() {
   
-  # frontend_update
-  backend_update
+  get_usuario
+  get_senha
+  system_pm2_stop
+  system_update_izing
+  frontend_node_dependencies
+  frontend_node_build
+  backend_node_dependencies
+  backend_db_migrate
+  backend_db_seed
+  system_pm2_start
 }
 
 

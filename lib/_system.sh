@@ -63,6 +63,28 @@ EOF
 }
 
 #######################################
+# update izing
+# Arguments:
+#   None
+#######################################
+system_update_izing() {
+  print_banner
+  printf "${WHITE} 💻 Fazendo unzip izing atualizado...${GRAY_LIGHT}"
+  printf "\n\n"
+
+  sleep 2
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/
+  wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
+  unzip update.zip
+  rm update.zip
+EOF
+
+  sleep 2
+}
+
+#######################################
 # updates system
 # Arguments:
 #   None
@@ -95,7 +117,7 @@ system_node_install() {
   sleep 2
 
   sudo su - root <<EOF
-  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
   apt-get install -y nodejs
 EOF
 
@@ -149,6 +171,34 @@ system_puppeteer_dependencies() {
 
   sudo su - root <<EOF
 apt install -y apt-transport-https ca-certificates software-properties-common curl libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils python2-minimal build-essential libxshmfence-dev nginx
+EOF
+
+  sleep 2
+}
+
+system_pm2_stop() {
+  print_banner
+  printf "${WHITE} 💻 Parando o izing...${GRAY_LIGHT}"
+  printf "\n\n"
+
+  sleep 2
+
+  sudo su - deploy <<EOF
+  pm2 stop all
+EOF
+
+  sleep 2
+}
+
+system_pm2_start() {
+  print_banner
+  printf "${WHITE} 💻 Iniciando o izing...${GRAY_LIGHT}"
+  printf "\n\n"
+
+  sleep 2
+
+  sudo su - deploy <<EOF
+  pm2 start all
 EOF
 
   sleep 2
