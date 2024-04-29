@@ -28,6 +28,9 @@ cd /root
 git clone https://github.com/cleitonme/izing.pro.install.git izinginstalador
 ```
 ```bash
+sudo chmod +x ./izinginstalador/izing
+```
+```bash
 cd ./izinginstalador
 ```
 ```bash
