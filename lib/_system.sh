@@ -481,3 +481,11 @@ system_success() {
 
   sleep 2
 }
+
+system_success2() {
+  print_banner
+  printf "${GREEN} 💻 Update concluído...${NC}"
+  printf "${NC}";
+
+  sleep 2
+}

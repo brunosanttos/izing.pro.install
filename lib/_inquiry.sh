@@ -47,6 +47,7 @@ software_update() {
   backend_db_migrate
   backend_db_seed
   system_pm2_start
+  system_success2
 }
 
 
@@ -56,7 +57,7 @@ inquiry_options() {
   printf "${WHITE} 💻 O que você precisa fazer?${GRAY_LIGHT}"
   printf "\n\n"
   printf "   [1] Instalar\n"
-  printf "   [2] Atualizar Izing\n"
+  printf "   [2] Atualizar Izing(antes de atualizar faça um Snapshots da VPS\n"
   printf "\n"
   read -p "> " option
 
