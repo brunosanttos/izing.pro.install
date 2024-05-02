@@ -60,7 +60,7 @@ EOF
 #######################################
 backend_chrome_install() {
   print_banner
-  printf "${WHITE} 💻 Vamos atualizar o sistema...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos instalar o Chrome...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
