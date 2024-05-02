@@ -56,6 +56,7 @@ system_unzip_izing() {
   sudo su - deploy <<EOF
   wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
   unzip izing.zip
+  chmod 775 izing.io/ -Rf
   rm izing.zip
 EOF
 
@@ -79,6 +80,7 @@ system_update_izing() {
   wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
   unzip -o update.zip
   sleep 2
+  chmod 775 izing.io/ -Rf
   rm update.zip
 EOF
 
