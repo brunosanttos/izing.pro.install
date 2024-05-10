@@ -50,6 +50,17 @@ software_update() {
   system_success2
 }
 
+instalar_firewall() {
+  instalacao_firewall
+}
+
+ativar_firewall () {
+  iniciar_firewall
+}
+
+desativar_firewall () {
+  parar_firewall
+}
 
 inquiry_options() {
   
@@ -58,6 +69,9 @@ inquiry_options() {
   printf "\n\n"
   printf "   [1] Instalar\n"
   printf "   [2] Atualizar Izing(antes de atualizar faça um Snapshots da VPS\n"
+  printf "   [3] Instalar Firewall(ufw) importante para evitar ataques HACKER\n"
+  printf "   [4] Ativar Firewall\n"
+  printf "   [5] Desativar Firewall\n"
   printf "\n"
   read -p "> " option
 
@@ -67,6 +81,21 @@ inquiry_options() {
 
     2) 
       software_update 
+      exit
+      ;;
+
+    3) 
+      instalar_firewall 
+      exit
+      ;;
+	  
+    4) 
+      ativar_firewall 
+      exit
+      ;;
+	  
+    5) 
+      desativar_firewall 
       exit
       ;;
 
