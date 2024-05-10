@@ -71,6 +71,10 @@ npx quasar build -P -m pwa
 
 Testar as alterações em aba anonima
 
+## Recomendação de instalar e deixar Firewall ativado
+
+Seu servidor pode sofrer ataques externos que fazem sistema travar e ter quedar por favor instale e mantenha o firewall ativado
+
 ## Recomendação de VPS boa e barata
 
 -  [Powerful cloud VPS & Web hosting.](https://control.peramix.com/?affid=58)
@@ -79,3 +83,4 @@ Testar as alterações em aba anonima
 
 Esta versão chamar no whatsapp 48 999416725
 
+Ela possui mais recursos e bugs são corrigidos com requência
