@@ -73,7 +73,7 @@ Testar as alterações em aba anonima
 
 ## Recomendação de instalar e deixar Firewall ativado
 
-Seu servidor pode sofrer ataques externos que fazem sistema travar e ter quedar por favor instale e mantenha o firewall ativado
+Seu servidor pode sofrer ataques externos que fazem sistema travar e ter quedas por favor instale e mantenha o firewall ativado.
 
 ## Recomendação de VPS boa e barata
 
