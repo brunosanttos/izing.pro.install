@@ -548,7 +548,12 @@ system_success() {
 
 system_success2() {
   print_banner
-  printf "${GREEN} 💻 Update concluído...${NC}"
+  printf "${GREEN} 💻 Proscesso concluido acessar com aba anonima e verificar se numero versão alterou...${NC}"
+  printf "${GREEN} Caso não tenha alterado veja motivos abaixo:${NC}"
+  printf "${GREEN} Não tenha atualização...${NC}"
+  printf "${GREEN} Sua senha para atualizar esta vencida...${NC}"
+  printf "${GREEN} Você digitou usuario ou senha errado${NC}"
+  printf "${GREEN} Se tiver duvidas chame no whatsapp${NC}"
   printf "${NC}";
 
   sleep 2
