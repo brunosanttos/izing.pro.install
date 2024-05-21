@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git pull
+
 # reset shell colors
 tput init
 

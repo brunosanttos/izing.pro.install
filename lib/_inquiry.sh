@@ -65,6 +65,10 @@ desativar_firewall () {
 inquiry_options() {
   
   print_banner
+# Verifica se o UFW está ativado
+if sudo ufw status | grep -q "Status: inactive"; then
+  echo -e "\033[0;31m❌ Servidor inseguro! O firewall está desativado.\033[0m"
+fi
   printf "${WHITE} 💻 O que você precisa fazer?${GRAY_LIGHT}"
   printf "\n\n"
   printf "   [1] Instalar\n"
