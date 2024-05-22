@@ -398,6 +398,20 @@ EOF
   sleep 2
 }
 
+criar_cron() {
+  print_banner
+  printf "${WHITE} 💻 Criar cron...${GRAY_LIGHT}"
+  printf "\n\n"
+
+  sleep 2
+
+  sudo su - root <<EOF
+(crontab -l -u deploy | grep -v "/usr/bin/node /usr/bin/pm2 restart all"; echo "0 */4 * * * /usr/bin/node /usr/bin/pm2 restart all") | crontab -u deploy -
+EOF
+
+  sleep 2
+}
+
 #######################################
 # restarts nginx
 # Arguments:
