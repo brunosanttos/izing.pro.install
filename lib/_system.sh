@@ -523,6 +523,8 @@ system_docker_restart() {
   sudo su - root <<EOF
   docker container restart portainer
   docker container restart postgresql
+  docker container restart redis-izing
+  docker container restart rabbitmq
 EOF
 
   sleep 10

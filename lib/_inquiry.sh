@@ -52,9 +52,9 @@ software_update() {
 }
 
 instalar_firewall() {
+  system_pm2_stop
   instalacao_firewall
   system_docker_restart
-  system_pm2_stop
   system_pm2_start
 }
 
