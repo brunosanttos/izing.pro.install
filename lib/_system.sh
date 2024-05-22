@@ -541,7 +541,7 @@ system_docker_restart() {
   docker container restart rabbitmq
 EOF
 
-  sleep 10
+  sleep 60
 }
 
 
