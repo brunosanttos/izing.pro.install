@@ -51,7 +51,7 @@ systemctl restart ufw
 
 EOF
 
-  sleep 2
+  sleep 60
 }
 
 iniciar_firewall() {
