@@ -37,6 +37,7 @@ source "${PROJECT_ROOT}"/config
 inquiry_options
 
 # dependencies related
+verificar_senha
 system_update
 system_set_timezone
 system_node_install
