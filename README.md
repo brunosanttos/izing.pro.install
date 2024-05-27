@@ -68,10 +68,7 @@ su deploy
 cd /home/deploy/izing.io/frontend/
 ```
 ```bash
-export NODE_OPTIONS=--openssl-legacy-provider
-```
-```bash
-npx quasar build -P -m pwa
+npm run build
 ```
 
 Testar as alterações em aba anonima
