@@ -518,6 +518,7 @@ system_docker_start() {
   docker container start postgresql
   docker container start redis-izing
   docker container start rabbitmq
+  docker exec -u root postgresql bash -c "chown -R postgres:postgres /var/lib/postgresql/data"
 EOF
 
   sleep 2
