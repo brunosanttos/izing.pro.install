@@ -16,6 +16,8 @@ backend_db_create() {
 
   sudo su - root <<EOF
   usermod -aG docker deploy
+  mkdir -p /data
+  chown -R 999:999 /data
   docker run --name postgresql \
                 -e POSTGRES_USER=izing \
                 -e POSTGRES_PASSWORD=${pg_pass} \
@@ -24,7 +26,7 @@ backend_db_create() {
                 --restart=always \
                 -v /data:/var/lib/postgresql/data \
                 -d postgres
-
+  docker exec -u root postgresql bash -c "chown -R postgres:postgres /var/lib/postgresql/data"
   docker run --name redis-izing \
                 -e TZ="America/Sao_Paulo" \
                 -p 6379:6379 \
@@ -96,6 +98,9 @@ backend_set_env() {
   frontend_url=$(echo "${frontend_url/https:\/\/}")
   frontend_url=${frontend_url%%/*}
   frontend_url=https://$frontend_url
+  
+  jwt_secret=$(openssl rand -base64 32)
+  jwt_refresh_secret=$(openssl rand -base64 32)
 
 sudo su - deploy << EOF
   cat <<[-]EOF > /home/deploy/izing.io/backend/.env
@@ -117,8 +122,8 @@ POSTGRES_PASSWORD=${pg_pass}
 POSTGRES_DB=postgres
 
 # Chaves para criptografia do token jwt
-JWT_SECRET=DPHmNRZWZ4isLF9vXkMv1QabvpcA80Rc
-JWT_REFRESH_SECRET=EMPehEbrAdi7s8fGSeYzqGQbV5wrjH4i
+JWT_SECRET=${jwt_secret}
+JWT_REFRESH_SECRET=${jwt_refresh_secret}
 
 # Dados de conexão com o REDIS
 IO_REDIS_SERVER=localhost
@@ -126,7 +131,6 @@ IO_REDIS_PASSWORD=${redis_pass}
 IO_REDIS_PORT=6379
 IO_REDIS_DB_SESSION=2
 
-#CHROME_BIN=/usr/bin/google-chrome
 CHROME_BIN=/usr/bin/google-chrome-stable
 
 # tempo para randomização da mensagem de horário de funcionamento
@@ -286,7 +290,7 @@ sudo su - root << EOF
 cat > /etc/nginx/sites-available/izing-backend << 'END'
 server {
   server_name $backend_hostname;
-
+  
   location / {
     proxy_pass http://127.0.0.1:3000;
     proxy_http_version 1.1;

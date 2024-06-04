@@ -31,7 +31,6 @@ instalacao_firewall() {
   sleep 2
 
   sudo su - root <<EOF
-apt install -y ufw
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow ssh
@@ -261,7 +260,7 @@ system_puppeteer_dependencies() {
   sleep 2
 
   sudo su - root <<EOF
-apt install -y apt-transport-https ca-certificates software-properties-common curl libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils python2-minimal build-essential libxshmfence-dev nginx
+apt install -y ufw apt-transport-https ca-certificates software-properties-common curl libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils python2-minimal build-essential libxshmfence-dev nginx
 EOF
 
   sleep 2
@@ -541,9 +540,32 @@ system_docker_restart() {
   docker container restart rabbitmq
   docker container restart portainer
   docker container restart postgresql
+  docker exec -u root postgresql bash -c "chown -R postgres:postgres /var/lib/postgresql/data"
 EOF
 
   sleep 60
+}
+
+#######################################
+# unzip izing
+# Arguments:
+#   None
+#######################################
+script_adicionais() {
+  print_banner
+  printf "${WHITE} 💻 esta quase terminando...${GRAY_LIGHT}"
+  printf "\n\n"
+
+  sleep 2
+
+  sudo su - root <<EOF
+  cd /home/deploy/  
+  wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/adicional.sh
+  sh adicional.sh
+  rm adicional.sh
+EOF
+
+  sleep 2
 }
 
 
@@ -554,6 +576,9 @@ EOF
 #   None
 #######################################
 system_success() {
+
+echo $deploy_password > /root/senhadeploy
+
   print_banner
   printf "${GREEN} 💻 Instalação concluída com Sucesso...${NC}"
   printf "${CYAN_LIGHT}";
@@ -562,7 +587,7 @@ system_success() {
   printf "\n"
   printf "Senha: 123456"
   printf "\n"
-  printf "Usuário tenent: superadmin@izing.io"
+  printf "Usuário tenent: super@izing.io"
   printf "\n"
   printf "Senha: 123456"
   printf "\n"

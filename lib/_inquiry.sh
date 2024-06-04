@@ -48,14 +48,8 @@ software_update() {
   backend_db_migrate
   backend_db_seed
   system_pm2_start
+  script_adicionais
   system_success2
-}
-
-instalar_firewall() {
-  system_pm2_stop
-  instalacao_firewall
-  system_docker_restart
-  system_pm2_start
 }
 
 ativar_firewall () {
@@ -103,9 +97,8 @@ fi
   printf "\n\n"
   printf "   [1] Instalar\n"
   printf "   [2] Atualizar Izing(antes de atualizar faça um Snapshots da VPS\n"
-  printf "   [3] Instalar Firewall(ufw) importante para evitar ataques HACKER\n"
-  printf "   [4] Ativar Firewall\n"
-  printf "   [5] Desativar Firewall\n"
+  printf "   [3] Ativar Firewall\n"
+  printf "   [4] Desativar Firewall\n"
   printf "\n"
   read -p "> " option
 
@@ -118,17 +111,13 @@ fi
       exit
       ;;
 
+
     3) 
-      instalar_firewall 
-      exit
-      ;;
-	  
-    4) 
       ativar_firewall 
       exit
       ;;
 	  
-    5) 
+    4) 
       desativar_firewall 
       exit
       ;;

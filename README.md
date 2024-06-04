@@ -1,6 +1,9 @@
 ## CRIAR SUBDOMINIO E APONTAR PARA O IP DA SUA VPS
 
-Testado ubuntu 20
+Requisitos
+
+Ubuntu 20 com minimo 8GB memoria
+2 dns do backend e do frontend
 
 Versão premium vai pedir usuario e senha para poder instalar
 
@@ -27,7 +30,7 @@ cd /root
 ```bash
 git clone https://github.com/cleitonme/izing.pro.install.git izinginstalador
 ```
-Para alterar as senhas alterar arquivo config, com nano para salvar aperta Ctrl + x
+Para definir sua senha alterar arquivo config, caso não definir será gerado uma senha aleatoria,  com nano para salvar aperta Ctrl + x
 ```bash
 nano ./izinginstalador/config
 ```
@@ -73,10 +76,28 @@ npm run build
 
 Testar as alterações em aba anonima
 
-## Recomendação de instalar e deixar Firewall ativado
+## Erros
 
-Seu servidor pode sofrer ataques externos que fazem sistema travar e ter quedas por favor instale e mantenha o firewall ativado.
-Utilizado UFW para saber mais de pesquisada no google.
+"Internal server error: SequelizeConnectionError: could not open file \"global/pg_filenode.map\": Permission denied"
+
+```bash
+  docker container restart postgresql
+```
+```bash
+docker exec -u root postgresql bash -c "chown -R postgres:postgres /var/lib/postgresql/data"
+```
+```bash
+  docker container restart postgresql
+```
+
+## Acesso Portainer gerar senha
+"Your Portainer instance timed out for security purposes. To re-enable your Portainer instance, you will need to restart Portainer."
+
+```bash
+  docker container restart portainer
+```
+
+Depois acesse novamente url http://seuip:9000/
 
 ## Recomendação de VPS boa e barata
 
@@ -86,4 +107,4 @@ Utilizado UFW para saber mais de pesquisada no google.
 
 Esta versão chamar no whatsapp 48 999416725
 
-Ela possui mais recursos e bugs são corrigidos com requência
+Ela possui mais recursos e bugs são corrigidos com frequência
