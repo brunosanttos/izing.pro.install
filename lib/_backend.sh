@@ -223,7 +223,7 @@ backend_db_migrate() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/izing.io/backend
-  npx sequelize db:migrate
+  npx sequelize db:migrate > /dev/null
 EOF
 
   sleep 2
@@ -243,7 +243,7 @@ backend_db_seed() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/izing.io/backend
-  npx sequelize db:seed:all
+  npx sequelize db:seed:all > /dev/null
 EOF
 
   sleep 2
