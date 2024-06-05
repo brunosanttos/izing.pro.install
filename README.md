@@ -25,6 +25,9 @@ reboot
 Depois reniciar seguir com a instalacao
 
 ```bash
+apt install git
+```
+```bash
 cd /root
 ```
 ```bash
