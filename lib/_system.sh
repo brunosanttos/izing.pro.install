@@ -43,7 +43,7 @@ echo "{\"iptables\": false}" > /etc/docker/daemon.json
 systemctl restart docker
 sed -i -e 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw
 ufw reload
-wget -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
+wget -q -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
 chmod +x /usr/local/bin/ufw-docker
 ufw-docker install
 systemctl restart ufw
@@ -116,7 +116,7 @@ system_unzip_izing() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/  
-  wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
+  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
   unzip izing.zip
   chmod 775 izing.io/ -Rf
   rm izing.zip
@@ -134,7 +134,7 @@ verificar_senha() {
 
   sudo su - root <<EOF
   rm teste.txt
-  wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/teste.txt
+  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/teste.txt
   
 if [ ! -f teste.txt ]; then
     echo -e "\033[1;31mSerá que sua senha está correta? Pode estar vencida?\033[0m"
@@ -162,7 +162,7 @@ system_update_izing() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/
-  wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
+  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
   unzip -o update.zip
   sleep 2
   chmod 775 izing.io/ -Rf
@@ -560,7 +560,7 @@ script_adicionais() {
 
   sudo su - root <<EOF
   cd /home/deploy/  
-  wget --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/adicional.sh
+  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/adicional.sh
   sh adicional.sh
   rm adicional.sh
 EOF
