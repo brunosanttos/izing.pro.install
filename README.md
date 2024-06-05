@@ -11,7 +11,7 @@ Versão premium vai pedir usuario e senha para poder instalar
 
 https://dnschecker.org/
 
-## RODAR OS COMANDOS ABAIXO ##
+## RODAR OS COMANDOS ABAIXO PARA INSTALAR##
 
 para evitar erros recomendados atualizar sistema e apos atualizar reniciar para evitar erros
 
@@ -33,12 +33,20 @@ cd /root
 ```bash
 git clone https://github.com/cleitonme/izing.pro.install.git izinginstalador
 ```
-Para definir sua senha alterar arquivo config, caso não definir será gerado uma senha aleatoria,  com nano para salvar aperta Ctrl + x
-```bash
-nano ./izinginstalador/config
-```
 ```bash
 sudo chmod +x ./izinginstalador/izing
+```
+```bash
+cd ./izinginstalador
+```
+```bash
+sudo ./izing
+```
+
+## RODAR OS COMANDOS ABAIXO PARA ATUALIZAR##
+
+```bash
+cd /root
 ```
 ```bash
 cd ./izinginstalador
