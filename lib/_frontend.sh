@@ -37,7 +37,7 @@ frontend_node_build() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/izing.io/frontend
-  npx update-browserslist-db@latest
+  npx update-browserslist-db@latest --yes
   export NODE_OPTIONS=--openssl-legacy-provider
   npx quasar build -P -m pwa
 EOF
