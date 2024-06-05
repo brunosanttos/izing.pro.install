@@ -133,7 +133,7 @@ verificar_senha() {
   sleep 2
 
   sudo su - root <<EOF
-  rm teste.txt
+  rm teste.txt > /dev/null
   wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/teste.txt
   
 if [ ! -f teste.txt ]; then
