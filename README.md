@@ -11,7 +11,7 @@ Versão premium vai pedir usuario e senha para poder instalar
 
 https://dnschecker.org/
 
-## RODAR OS COMANDOS ABAIXO PARA INSTALAR##
+## RODAR OS COMANDOS ABAIXO PARA INSTALAR
 
 para evitar erros recomendados atualizar sistema e apos atualizar reniciar para evitar erros
 
@@ -43,7 +43,7 @@ cd ./izinginstalador
 sudo ./izing
 ```
 
-## RODAR OS COMANDOS ABAIXO PARA ATUALIZAR##
+## RODAR OS COMANDOS ABAIXO PARA ATUALIZAR
 
 ```bash
 cd /root
