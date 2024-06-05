@@ -60,6 +60,13 @@ desativar_firewall () {
   parar_firewall
 }
 
+erro_qrcode () {
+  system_pm2_stop
+  backend_limpa_wwebjs_auth
+  system_pm2_start
+  system_successqrcode
+}
+
 inquiry_options() {
 
   rm versao.json
@@ -99,6 +106,7 @@ fi
   printf "   [2] Atualizar Izing(antes de atualizar faça um Snapshots da VPS\n"
   printf "   [3] Ativar Firewall\n"
   printf "   [4] Desativar Firewall\n"
+  printf "   [5] Erro QRCODE - Atenção vai ter conectar conexões novamente\n"
   printf "\n"
   read -p "> " option
 
@@ -119,6 +127,11 @@ fi
 	  
     4) 
       desativar_firewall 
+      exit
+      ;;
+	
+    5) 
+      erro_qrcode
       exit
       ;;
 

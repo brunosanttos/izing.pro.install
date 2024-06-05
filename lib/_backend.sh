@@ -77,6 +77,21 @@ EOF
   sleep 2
 }
 
+backend_limpa_wwebjs_auth() {
+  print_banner
+  printf "${WHITE} 💻 Estamos apagando pasta de conexões...${GRAY_LIGHT}"
+  printf "\n\n"
+
+  sleep 2
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/izing.io/backend
+  rm .wwebjs_auth -Rf
+EOF
+
+  sleep 2
+}
+
 #######################################
 # sets environment variable for backend.
 # Arguments:

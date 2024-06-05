@@ -92,20 +92,20 @@ Testar as alterações em aba anonima
 "Internal server error: SequelizeConnectionError: could not open file \"global/pg_filenode.map\": Permission denied"
 
 ```bash
-  docker container restart postgresql
+docker container restart postgresql
 ```
 ```bash
 docker exec -u root postgresql bash -c "chown -R postgres:postgres /var/lib/postgresql/data"
 ```
 ```bash
-  docker container restart postgresql
+docker container restart postgresql
 ```
 
 ## Acesso Portainer gerar senha
 "Your Portainer instance timed out for security purposes. To re-enable your Portainer instance, you will need to restart Portainer."
 
 ```bash
-  docker container restart portainer
+docker container restart portainer
 ```
 
 Depois acesse novamente url http://seuip:9000/
