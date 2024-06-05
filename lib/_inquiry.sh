@@ -63,7 +63,7 @@ desativar_firewall () {
 inquiry_options() {
 
   rm versao.json
-  wget https://infomeurer.com.br/versao.json versao.json
+  wget -q https://infomeurer.com.br/versao.json versao.json
   print_banner
   
 # Verifica se o arquivo package.json existe
