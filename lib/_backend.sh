@@ -183,7 +183,7 @@ backend_node_dependencies() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/izing.io/backend
-  npm install --force
+  npm install --force --silent
 EOF
 
   sleep 2
