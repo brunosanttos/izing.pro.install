@@ -87,7 +87,8 @@ backend_limpa_wwebjs_auth() {
   sudo su - deploy <<EOF
   cd /home/deploy/izing.io/backend
   npm r whatsapp-web.js
-  npm i whatsapp-web.js@^1.23.1-alpha.6
+  npm i github:pedroslopez/whatsapp-web.js#webpack-exodus
+  rm .wwebjs_cache -Rf
   rm .wwebjs_auth -Rf
 EOF
 
