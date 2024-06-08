@@ -116,10 +116,14 @@ system_unzip_izing() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/  
-  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/izing.zip
   unzip izing.zip
   chmod 775 izing.io/ -Rf
   rm izing.zip
+  rm izing.zip.1
+  rm izing.zip.2
 EOF
 
   sleep 2
@@ -134,7 +138,7 @@ verificar_senha() {
 
   sudo su - root <<EOF
   rm teste.txt > /dev/null
-  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/teste.txt
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/teste.txt
   
 if [ ! -f teste.txt ]; then
     echo -e "\033[1;31mSerá que sua senha está correta? Pode estar vencida?\033[0m"
@@ -162,11 +166,15 @@ system_update_izing() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/
-  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/update.zip
   unzip -o update.zip
   sleep 2
   chmod 775 izing.io/ -Rf
   rm update.zip
+  rm update.zip.1
+  rm update.zip.2
 EOF
 
   sleep 2
@@ -560,7 +568,7 @@ script_adicionais() {
 
   sudo su - root <<EOF
   cd /home/deploy/  
-  wget -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/adicional.sh
+  wget --inet4-only -q --user ${username_down} --password ${senha_down} https://infomeurer.com.br/restrito/adicional.sh
   sh adicional.sh
   rm adicional.sh
 EOF
