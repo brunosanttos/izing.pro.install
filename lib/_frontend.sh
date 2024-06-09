@@ -66,7 +66,6 @@ frontend_set_env() {
 sudo su - deploy << EOF
   cat <<[-]EOF > /home/deploy/izing.io/frontend/.env
 URL_API=${backend_url}
-FACEBOOK_APP_ID='23156312477653241'
 [-]EOF
 EOF
 

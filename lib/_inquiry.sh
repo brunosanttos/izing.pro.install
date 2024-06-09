@@ -70,7 +70,7 @@ erro_qrcode () {
 inquiry_options() {
 
   rm versao.json
-  wget -q https://infomeurer.com.br/versao.json versao.json
+  wget -q https://a.infomeurer.com.br/versao.json versao.json
   print_banner
   
 # Verifica se o arquivo package.json existe
